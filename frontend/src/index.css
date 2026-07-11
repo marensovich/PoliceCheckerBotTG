@@ -1,3 +1,72 @@
+/* DPS Tracker MiniApp Global Styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; width: 100%; }
+.leaflet-pane { z-index: 400; }
+.leaflet-control { z-index: 500; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes radarPulse {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes slideUpBounce {
+  0%   { transform: translateY(100%); }
+  60%  { transform: translateY(-10px); }
+  78%  { transform: translateY(5px); }
+  90%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(-16px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dotsWave {
+  0%, 80%, 100% { transform: scaleY(1);   opacity: 0.4; }
+  40%            { transform: scaleY(1.6); opacity: 1; }
+}
+
+/* ── Utility classes ─────────────────────────────────────────────────────── */
+
+.page-enter {
+  animation: pageFade 0.22s ease both;
+}
+
+.toast-enter {
+  animation: toastIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 25%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.06) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.bottom-sheet-enter {
+  animation: slideUpBounce 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;

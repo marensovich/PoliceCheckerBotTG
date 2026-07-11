@@ -1,23 +1,33 @@
 {
-  "name": "frontend",
+  "name": "dps-tracker-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stomp/stompjs": "^7.0.0",
+    "@types/leaflet.markercluster": "^1.5.6",
+    "axios": "^1.7.2",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-leaflet": "^5.0.0",
+    "sockjs-client": "^1.6.1",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@types/sockjs-client": "^1.5.4",
     "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^10.5.0",
     "eslint-plugin-react-hooks": "^7.1.1",
