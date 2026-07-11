@@ -1,51 +1,64 @@
-# 🚔 Police Checker Bot
+# PoliceCheckerBot
 
-A community-driven service for sharing and discovering **traffic police checkpoint locations** in real time. Users report DPS posts via a Telegram bot; others can query nearby checkpoints through the web interface or bot.
+> «Знаешь про пост ДПС — предупреди других.»
 
-## ✨ Features
+Сервис совместного мониторинга постов ДПС. Пользователи сообщают через Telegram-бота, остальные получают данные через карту или запрос к боту. Точность зависит от активности сообщества.
 
-- 📍 Report traffic police checkpoint locations via Telegram bot
-- 🗺️ Interactive map of active checkpoints
-- 📡 Query checkpoints near your location
-- 📜 Full history of reports
-- 👤 User profiles and activity tracking
-- 🛡️ Admin panel for moderation
-- 🔆 Radar view for nearby posts
-
-## 🛠️ Tech Stack
-
-**Backend:**
-- Java + Spring Boot
-- Telegram Bot integration
-- Docker containerization
-
-**Frontend:**
-- React + TypeScript + Vite
-- Pages: Map, Radar, Nearby, History, Profile, Admin
-- Telegram Web App integration
-
-## 📁 Project Structure
+## Архитектура
 
 ```
-backend/   # Spring Boot API + Telegram bot
-frontend/  # Vite + React + TypeScript web app
+Пользователь
+    │
+    ▼
+Telegram Bot ──▶ Spring Boot API ──▶ База данных
+                        │
+                        ▼
+               React Web App
+          (карта / радар / история)
 ```
 
-## 🚀 Getting Started
+## Что умеет
+
+**Telegram-бот:**
+- Сообщить о посте ДПС со своей геолокацией
+- Узнать посты рядом с текущим местоположением
+- Смотреть историю своих репортов
+- Личный профиль и статистика активности
+
+**Веб-приложение:**
+- Интерактивная карта активных постов
+- Радар: посты в заданном радиусе от вас
+- Полная история с фильтрацией
+- Панель администратора для модерации
+
+## Структура репозитория
+
+```
+backend/    # Spring Boot REST API + Telegram-бот
+frontend/   # Vite + React + TypeScript
+```
+
+## Запуск
 
 ```bash
-# Backend
+# Бэкенд
 cd backend
+cp .env.example .env   # вписать токены
 ./gradlew bootRun
 
-# Frontend
+# Фронтенд
 cd frontend
 npm install
 npm run dev
 ```
 
-Configure `.env` from `.env.example` before running.
+## Стек
 
-## 👤 Author
+- **Java + Spring Boot** + **Telegram Bot API** — бэкенд и бот
+- **React + TypeScript + Vite** — веб-интерфейс
+- **Telegram Web App API** — интеграция с Telegram Mini Apps
+- **Docker** — контейнеризация
 
-[@marensovich](https://github.com/marensovich)
+---
+
+**Автор:** [@marensovich](https://github.com/marensovich)
